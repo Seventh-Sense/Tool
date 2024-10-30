@@ -12,6 +12,17 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        math: "always", // 括号内才使用数学计算
+        globalVars: {
+          // 全局变量
+          mainColor: "red",
+        },
+      },
+    },
+  },
   build: {
     target: "es2015", // 默认值
     outDir: "dist", // 构建结果的目录，默认值
@@ -41,7 +52,7 @@ export default defineConfig({
   },
   server: {
     open: true, // 是否自动在浏览器打开项目
-    port: 3001, // 设置服务启动时的端口
+    port: 3000, // 设置服务启动时的端口
     host: "0.0.0.0", // 指定服务监听的主机地址
   },
 });
