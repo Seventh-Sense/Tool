@@ -1,0 +1,24 @@
+{
+  "name": "tool",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ant-design-vue": "^4.2.5",
+    "axios": "^1.7.7",
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.2",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "svg-sprite-loader": "^6.0.11",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.9",
+    "vue-tsc": "^2.1.6"
+  }
+}
