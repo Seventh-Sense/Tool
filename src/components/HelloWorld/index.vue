@@ -8,7 +8,7 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-
+  <svg-icon name="logo" :size="80"></svg-icon>
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
