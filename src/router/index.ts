@@ -4,8 +4,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    name: 'HelloWorld',
-    component:  () => import('@/components/HelloWorld/index.vue')
+    name: 'Tool',
+    component:  () => import('@/components/Tool/index.vue')
   },
   // 添加更多路由...
 ];
