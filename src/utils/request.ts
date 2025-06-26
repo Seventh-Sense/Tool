@@ -21,7 +21,7 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response) => {
     // 统一处理响应错误，例如 token 无效、服务端异常等
-    return response;
+    return Promise.resolve(response.data);
   },
   (err) => {
     return Promise.reject(err);
