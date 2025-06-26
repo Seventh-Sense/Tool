@@ -121,4 +121,26 @@ const onclick = async () => {
 ::v-deep(.ant-form-item-control) {
   max-width: none !important;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* 滚动条滑块在鼠标悬浮时 */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 </style>

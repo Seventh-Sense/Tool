@@ -1,8 +1,11 @@
 <template>
   <div class="page" style="color: white">
     <div class="page-header">
-      <div @click="onclick" style="font-size: 32px;font-weight: bold;cursor: pointer">
-        Tool
+      <div
+        @click="onclick"
+        style="font-size: 32px; font-weight: bold; cursor: pointer"
+      >
+        数据上传管理 <span style="font-size: 20px;">V{{ version }}</span>
       </div>
     </div>
 
@@ -11,7 +14,7 @@
         <a-col :span="12">
           <div class="page-card card-one">
             <div class="page-card-title">任务</div>
-            <Task  />
+            <Task />
           </div>
         </a-col>
         <a-col :span="12">
@@ -29,13 +32,30 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
 import Mqtt from "@/components/Mqtt/index.vue";
 import Task from "@/components/Task/index.vue";
+import { onMounted, ref } from "vue";
+import { getVersion } from "../../utils/http";
 
 const onclick = () => {
   window.location.reload();
 };
+
+const version = ref("1.0.0");
+
+onMounted(() => {
+  // 页面加载时的逻辑
+
+  getVersion()
+    .then((res: any) => {
+      if (res.Version) {
+        version.value = res.Version;
+      }
+    })
+    .catch((error: any) => {
+      console.error("Error fetching version:", error);
+    });
+});
 </script>
 
 <style lang="less" scoped>

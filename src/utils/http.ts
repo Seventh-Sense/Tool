@@ -94,3 +94,13 @@ export const updateMqtt = async (data: any) => {
     throw error
   }
 }
+
+export const getVersion = async () => {
+  try {
+    const response = await get(`/version`)
+
+    return response
+  } catch (error) {
+    throw error
+  }
+}

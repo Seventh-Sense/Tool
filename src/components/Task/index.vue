@@ -14,7 +14,11 @@
         <template #extra><DeleteOutlined @click="onDelete(job)" /></template>
       </a-collapse-panel>
     </a-collapse>
-    <JobModal v-if="jobShow" v-model:isShowModal="jobShow" :dataList="jobList" />
+    <JobModal
+      v-if="jobShow"
+      v-model:isShowModal="jobShow"
+      :dataList="jobList"
+    />
   </div>
 </template>
 
@@ -27,7 +31,7 @@ import JobModal from "@/components/Task/JobModal/index.vue";
 const jobShow = ref(false);
 const jobList = ref<any>([]);
 
-const activeKey = ref(["1"]);
+const activeKey = ref([""]);
 
 onMounted(() => {
   // 初始化逻辑
@@ -136,5 +140,27 @@ watch(
 
 ::v-deep(.ant-form-item-control) {
   max-width: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* 滚动条滑块在鼠标悬浮时 */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>
