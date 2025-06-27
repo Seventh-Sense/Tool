@@ -18,13 +18,13 @@
           </div>
         </a-col>
         <a-col :span="12">
-          <div class="page-card card-half" style="margin-bottom: 20px">
+          <div class="page-card card-one" >
             <div class="page-card-title">MQTT</div>
             <Mqtt style="flex-grow: 1" />
           </div>
-          <div class="page-card card-half">
+          <!-- <div class="page-card card-half">
             <div class="page-card-title"></div>
-          </div>
+          </div> -->
         </a-col>
       </a-row>
     </div>
