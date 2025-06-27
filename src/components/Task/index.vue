@@ -6,10 +6,15 @@
     <a-collapse v-model:activeKey="activeKey" accordion>
       <a-collapse-panel v-for="job in jobList" :header="job.name">
         <div class="container-list">
-          <div v-for="(value, key) in job">
+          <!-- <div v-for="(value, key) in job">
             <div class="container-list-key">{{ key }}</div>
             <div class="container-list-value">{{ value }}</div>
-          </div>
+          </div> -->
+          <div class="container-list-key">ID</div>
+          <div class="container-list-value">{{ job["id"] }}</div>
+
+          <div class="container-list-key">Next Run Time</div>
+          <div class="container-list-value">{{ job["next_run_time"] }}</div>
         </div>
         <template #extra><DeleteOutlined @click="onDelete(job)" /></template>
       </a-collapse-panel>
