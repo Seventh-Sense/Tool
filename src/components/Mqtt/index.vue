@@ -1,12 +1,7 @@
 <template>
   <div class="container">
     <div class="container-top">
-      <a-form
-        :model="formState"
-        :label-col="labelCol"
-        :wrapper-col="wrapperCol"
-        labelAlign="left"
-      >
+      <a-form :model="formState" :label-col="labelCol" :wrapper-col="wrapperCol" labelAlign="left">
         <a-form-item>
           <a-button type="primary" @click="onclick">提交</a-button>
         </a-form-item>
@@ -14,20 +9,24 @@
           <a-input v-model:value="formState.host" />
         </a-form-item>
         <a-form-item label="Port">
-          <a-input-number
-            v-model:value="formState.port"
-            :min="1"
-            style="width: 100%"
-          />
+          <a-input-number v-model:value="formState.port" :min="1" style="width: 100%" />
         </a-form-item>
+
         <a-form-item label="Sub AC Topic">
           <a-input v-model:value="formState.sub_ac_topic" />
         </a-form-item>
         <a-form-item label="Pub AC Topic">
           <a-input v-model:value="formState.pub_ac_topic" />
         </a-form-item>
+      
         <a-form-item label="Pub Meter Topic">
           <a-input v-model:value="formState.pub_meter_topic" />
+        </a-form-item>
+        <a-form-item label="Sub Light Topic">
+          <a-input v-model:value="formState.sub_ac_topic" />
+        </a-form-item>
+        <a-form-item label="Pub Light Topic">
+          <a-input v-model:value="formState.pub_ac_topic" />
         </a-form-item>
       </a-form>
     </div>
@@ -45,6 +44,8 @@ const formState: UnwrapRef<any> = reactive({
   port: 1888,
   sub_ac_topic: "/cloud/YANHUA/AC/001/cmd/set",
   pub_ac_topic: "/edge/YANHUA/AC/001/rtg",
+  pub_light_topic: "/edge/YANHUA/Light/002/rtg",
+  sub_light_topic: "/cloud/YANHUA/Light/002/cmd/set",
   pub_meter_topic: "/edge/YANHUA/Meter/003/rtg",
 });
 
@@ -66,6 +67,8 @@ const initData = async () => {
       formState.port = res.data.port;
       formState.sub_ac_topic = res.data.sub_ac_topic;
       formState.pub_ac_topic = res.data.pub_ac_topic;
+      formState.sub_light_topic = res.data.sub_light_topic;
+      formState.pub_light_topic = res.data.pub_light_topic;
       formState.pub_meter_topic = res.data.pub_meter_topic;
     }
   } catch (e) {

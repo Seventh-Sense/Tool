@@ -61,6 +61,10 @@ const options = [
     label: "publish_ac_job",
     value: "xport.app.task:publish_ac_job",
   },
+  {
+    label: "publish_light_job",
+    value: "xport.app.task:publish_light_job",
+  },
 ];
 
 const dataCheck = () => {
@@ -105,6 +109,8 @@ watch(
       data.value.id = "publish_meter_job";
     } else if (newVal === "xport.app.task:publish_ac_job") {
       data.value.id = "publish_ac_job";
+    } else if (newVal === "xport.app.task:publish_light_job") {
+      data.value.id = "publish_light_job";
     }
   }
 );
