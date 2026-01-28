@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
+import LangSelect from '@/components/LangSelect/index.vue'
+import ThemeSelect from '@/components/ThemeSelect/index.vue'
 
 const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
   <svg-icon name="logo" :size="80"></svg-icon>
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
-      Edit
+      Edit  {{ $t('user.confirmDelete') }}
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
   </div>
 
+  <LangSelect/>
+  <ThemeSelect/>
   <p>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
@@ -34,8 +35,8 @@ const count = ref(0)
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .read-the-docs {
-  color: #888;
+  color: var(--sidebar-bg);
 }
 </style>
