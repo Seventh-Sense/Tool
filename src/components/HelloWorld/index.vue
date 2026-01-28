@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import LangSelect from '@/components/LangSelect/index.vue'
 import ThemeSelect from '@/components/ThemeSelect/index.vue'
-
+import { loginApi } from '@/api';
 const count = ref(0)
+
+
+onMounted(async() => {
+  try{
+
+    const res = await loginApi({})
+
+    console.log('res',res)
+
+  } catch (e) {
+    console.log(e)
+  }
+})
 </script>
 
 <template>
